@@ -16,8 +16,14 @@ app.use(bodyParser.json({ limit: "100mb" }));
 
 // app.options("*", cors(corsOptions));
 
+/* GET home page. */
+router.get("/", function (req, res, next) {
+  console.log(WL);
+  res.render("index", { title: "Express" });
+});
+
 /* POST home page. */
-router.post("/", function (req, res, next) {
+router.post("/wl", function (req, res, next) {
   const { address } = res.body;
   console.log(res.body);
   console.log("im here mfer");
@@ -25,12 +31,6 @@ router.post("/", function (req, res, next) {
   const found = WL.find(address);
   if (!found) res.send("Eroor").status(500);
   else res.json(true);
-});
-
-/* GET home page. */
-router.get("/", function (req, res, next) {
-  console.log(WL);
-  res.render("index", { title: "Express" });
 });
 
 module.exports = router;
