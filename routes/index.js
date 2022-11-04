@@ -19,7 +19,7 @@ app.use(bodyParser.json({ limit: "100mb" }));
 /* POST home page. */
 router.post("/", function (req, res, next) {
   const { address } = res.body;
-  console.log(address);
+  console.log(res.body);
   if (!address) res.send("Eroor").status(500);
   const found = WL.find(address);
   if (!found) res.send("Eroor").status(500);
