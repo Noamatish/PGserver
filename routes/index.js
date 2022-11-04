@@ -3,7 +3,7 @@ const WL = require("./address");
 var router = express.Router();
 
 /* GET home page. */
-router.get("/", function (req, res, next) {
+router.post("/", function (req, res, next) {
   const { address } = res.body;
   if (!address) res.send("Eroor").status(500);
   const found = WL.find(address);
