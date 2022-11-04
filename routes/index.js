@@ -5,8 +5,8 @@ const WL = require("./address");
 const router = express.Router();
 const app = express();
 
-app.use(cors());
-app.use(bodyParser.json({ limit: "100mb" }));
+// app.use(cors());
+// app.use(bodyParser.json({ limit: "100mb" }));
 // var corsOptions = {
 //   origin: "*",
 //   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
@@ -14,6 +14,9 @@ app.use(bodyParser.json({ limit: "100mb" }));
 // app.use(cors(corsOptions));
 
 // app.options("*", cors(corsOptions));
+
+app.options("*", cors());
+app.use(cors());
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
