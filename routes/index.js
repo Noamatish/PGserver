@@ -6,7 +6,6 @@ const router = express.Router();
 const app = express();
 
 app.use(cors());
-app.use(bodyParser.urlencoded({ limit: "100mb", extended: true }));
 app.use(bodyParser.json({ limit: "100mb" }));
 // var corsOptions = {
 //   origin: "*",
