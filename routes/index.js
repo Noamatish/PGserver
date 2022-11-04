@@ -3,14 +3,14 @@ const WL = require("./address");
 const router = express.Router();
 const app = express();
 
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+const cors = require("cors");
+
+var corsOptions = {
+  origin: "*",
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+app.use(cors(corsOptions));
+
 /* POST home page. */
 router.post("/", function (req, res, next) {
   const { address } = res.body;
