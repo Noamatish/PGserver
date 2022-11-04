@@ -1,10 +1,16 @@
-var express = require("express");
+const express = require("express");
 const WL = require("./address");
-var router = express.Router();
-const cors = require("cors");
-var app = express();
-app.use(cors());
+const router = express.Router();
+const app = express();
 
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 /* POST home page. */
 router.post("/", function (req, res, next) {
   const { address } = res.body;
