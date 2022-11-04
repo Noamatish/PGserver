@@ -15,8 +15,12 @@ const app = express();
 
 // app.options("*", cors(corsOptions));
 
-app.options("*", cors());
-app.use(cors());
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  })
+);
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
