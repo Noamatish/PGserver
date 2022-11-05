@@ -1,5 +1,6 @@
 const express = require("express");
 const WL = require("./address");
+const checkMerkle = require("./utils");
 const router = express.Router();
 
 // app.use(cors());
@@ -21,12 +22,19 @@ router.get("/", function (req, res, next) {
 /* POST home page. */
 router.post("/wl", function (req, res, next) {
   const { address } = req.body;
-  console.log(address);
-  console.log("im here mfer");
   if (!address) return res.json("Error - no address").status(500);
   const found = WL.find((w) => w === address);
   if (!found) return res.json(false);
   else return res.json(true);
+});
+
+/* POST home page. */
+router.post("/check", function (req, res, next) {
+  const { address } = req.body;
+  if (!address) return res.json("Error - no address").status(500);
+  const proof = checkMerkle(address);
+  if (!proof) return res.json(false);
+  else return res.json(proof);
 });
 
 module.exports = router;
