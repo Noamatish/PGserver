@@ -12,7 +12,6 @@ const router = express.Router();
 
 // app.options("*", cors(corsOptions));
 
-
 /* GET home page. */
 router.get("/", function (req, res, next) {
   console.log(WL);
@@ -21,8 +20,8 @@ router.get("/", function (req, res, next) {
 
 /* POST home page. */
 router.post("/wl", function (req, res, next) {
-  const { address } = res.body;
-  console.log(res.body);
+  const { address } = req.body;
+  console.log(req.body);
   console.log("im here mfer");
   if (!address) res.send("Eroor").status(500);
   const found = WL.find(address);
