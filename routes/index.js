@@ -21,10 +21,10 @@ router.get("/", function (req, res, next) {
 /* POST home page. */
 router.post("/wl", function (req, res, next) {
   const { address } = req.body;
-  console.log(req.body);
+  console.log(address);
   console.log("im here mfer");
   if (!address) return res.send("Error - no address").status(500);
-  const found = WL.find(address);
+  const found = WL.find((w) => w === address);
   if (!found) return res.send("Error - no wl").status(500);
   else return res.json(true);
 });
