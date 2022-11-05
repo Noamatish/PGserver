@@ -23,10 +23,10 @@ router.post("/wl", function (req, res, next) {
   const { address } = req.body;
   console.log(req.body);
   console.log("im here mfer");
-  if (!address) res.send("Eroor").status(500);
+  if (!address) return res.send("Eroor").status(500);
   const found = WL.find(address);
-  if (!found) res.send("Eroor").status(500);
-  else res.json(true);
+  if (!found) return res.send("Eroor").status(500);
+  else return res.json(true);
 });
 
 module.exports = router;
