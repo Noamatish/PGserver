@@ -23,9 +23,9 @@ router.post("/wl", function (req, res, next) {
   const { address } = req.body;
   console.log(address);
   console.log("im here mfer");
-  if (!address) return res.json(false);
+  if (!address) return res.json("Error - no address").status(500);
   const found = WL.find((w) => w === address);
-  if (!found) return res.send("Error - no wl").status(500);
+  if (!found) return res.json(false);
   else return res.json(true);
 });
 
