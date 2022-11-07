@@ -2729,3 +2729,5 @@ const WL = [
   "0x7A0C42AdbF3887261E792986E798f470947aE3cc",
   "0xAC3465094FadE8Bd88cf5834cF69dE081ECcaDf8",
 ];
+
+module.exports = WL;
