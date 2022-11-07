@@ -16,5 +16,8 @@
     "merkletreejs": "^0.3.0",
     "morgan": "~1.9.1",
     "pug": "2.0.0-beta11"
+  },
+  "devDependencies": {
+    "@types/js-base64": "^3.3.1"
   }
 }
